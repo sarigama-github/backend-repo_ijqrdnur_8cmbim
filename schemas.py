@@ -38,6 +38,16 @@ class Product(BaseModel):
     category: str = Field(..., description="Product category")
     in_stock: bool = Field(True, description="Whether product is in stock")
 
+# Inspiration Quotes app schema
+class Quote(BaseModel):
+    """
+    Quotes collection schema
+    Collection name: "quote" (lowercase of class name)
+    """
+    text: str = Field(..., min_length=1, max_length=500, description="Quote text")
+    author: Optional[str] = Field(None, max_length=120, description="Author name")
+    mood: Optional[str] = Field(None, max_length=60, description="Optional mood tag, e.g., happy, focused")
+
 # Add your own schemas here:
 # --------------------------------------------------
 
